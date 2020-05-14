@@ -1,0 +1,1 @@
+- when the front end makes a call to update a user's battle log. Send the most recent battle time with it. This way it will stop a call to the database to get the earliest call battle time. 

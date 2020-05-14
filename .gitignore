@@ -1,0 +1,6 @@
+/venv
+/app/brawlstars/configs
+.vscode
+.flaskenv
+__pycache__
+/app/mongo/secrets.py
