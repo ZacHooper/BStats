@@ -2,6 +2,11 @@
 from .configs.secrets import apiKey # devlopment
 import requests
 import pandas as pd
+import os
+proxyDict = {
+              "http"  : os.environ.get('FIXIE_URL', ''),
+              "https" : os.environ.get('FIXIE_URL', '')
+            }
 
 url = 'https://api.brawlstars.com/v1/'
 
@@ -12,7 +17,7 @@ def getPlayerInfo(playerTag):
     endpoint = url + 'players/%23' + playerTag
     print(endpoint)
 
-    res = requests.get(endpoint, params=payload)
+    res = requests.get(endpoint, params=payload, proxies=proxyDict)
     json = res.json()
 
     return json
@@ -22,7 +27,7 @@ def getPlayerBattles(playerTag):
 
     endpoint = url + 'players/%23' + playerTag + '/battlelog'
 
-    res = requests.get(endpoint, params=payload)
+    res = requests.get(endpoint, params=payload, proxies=proxyDict)
     jsonised = res.json()
 
     return jsonised
