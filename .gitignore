@@ -1,6 +1,10 @@
 /venv
-/app/brawlstars/configs
+
 .vscode
 .flaskenv
 __pycache__
-/app/mongo/secrets.py
+
+
+#passwords
+# /app/mongo/secrets.py
+# /app/brawlstars/configs/secrets
