@@ -1,5 +1,5 @@
 #from app.brawlstars.configs.secrets import apiKey
-from configs.secrets import apiKey # devlopment
+from .configs.secrets import apiKey # devlopment
 import requests
 import pandas as pd
 
