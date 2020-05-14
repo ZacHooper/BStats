@@ -1,6 +1,6 @@
 from flask import Flask
-from app.brawlstars.configs.secrets import apiKey
-from app.brawlstars.brawlstarsAPI import getPlayerInfo, getPlayerBattles, cleanBattleData
+from brawlstars.configs.secrets import apiKey
+from brawlstars.brawlstarsAPI import getPlayerInfo, getPlayerBattles, cleanBattleData
 import requests
 
 app = Flask(__name__)
