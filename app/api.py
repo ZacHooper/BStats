@@ -28,7 +28,7 @@ def add_new_player(playerTag):
     foundUser = getUserByTag(playerTag)
     if foundUser is None:
         newPlayer = getPlayerInfo(playerTag)
-        return dumps(addNewUser(newPlayer))
+        return addNewUser(newPlayer)
     else:
         return foundUser
 

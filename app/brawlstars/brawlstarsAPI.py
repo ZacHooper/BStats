@@ -93,7 +93,7 @@ def cleanBattleData(battleList, playerTag):
         # Player specific flow - solo showdown, robo rumble, etc
         if 'players' in battle:
             cleanBattle['players'] = battle['players']
-            data = getBrawlerDetails(team)
+            data = getBrawlerDetails(battle['players'])
             if data is not None:
                 brawlerData.update(data)
 
