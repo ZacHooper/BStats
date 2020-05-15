@@ -6,5 +6,5 @@ __pycache__
 
 
 #passwords
-# /app/mongo/secrets.py
-# /app/brawlstars/configs/secrets
+ /app/mongo/secrets.py
+ /app/brawlstars/configs/secrets
