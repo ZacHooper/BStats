@@ -1,8 +1,8 @@
 from pymongo import MongoClient
 from bson.json_util import dumps, loads
-from .secrets import getPassword
+from .secrets import password
 
-client = MongoClient('mongodb+srv://hooperz:' + getPassword() + '@cluster0-kkaez.mongodb.net/test?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://hooperz:' + password + '@cluster0-kkaez.mongodb.net/test?retryWrites=true&w=majority')
 
 user = {
     "3vs3Victories": 1947,
@@ -63,7 +63,7 @@ def getUserByTag(playerTag):
     #Check if playerTag already has a '#' if not add it
     if '#' not in playerTag:
         playerTag = '#' + playerTag
-        
+
     foundUser = Users.find_one({"tag": playerTag})
 
     return foundUser if foundUser is None else dumps(foundUser)
