@@ -44,7 +44,7 @@ def cleanBattleData(battleList, playerTag):
         
         # Default Values
         cleanBattle = {
-            "battleTime":battles['battleTime'],
+            "_id":battles['battleTime'],
             "duration": battle['duration'] if 'duration' in battle else 'NA',
             "mode":battle['mode'],
             "trophyChange":battle['trophyChange'] if 'trophyChange' in battle else 'NA',
@@ -61,7 +61,7 @@ def cleanBattleData(battleList, playerTag):
 
         # Star Player
         if 'starPlayer' in battle:
-            cleanBattle['isStarPlayer'] = True if battle['starPlayer'] == ('#' + playerTag) else False
+            cleanBattle['isStarPlayer'] = True if battle['starPlayer']['tag'] == ('#' + playerTag) else False
 
         # Play Brawler Details init
         brawlerData = {
