@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 14, in <module>
+    res = update_player_battlelog_by_tag(user['_id'][1:])
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/api.py", line 46, in update_player_battlelog_by_tag
+    cleanBattleList = cleanBattleData(battleList, playerTag)
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/brawlstars/brawlstarsAPI.py", line 45, in cleanBattleData
+    for battles in battleList['items']:
+KeyError: 'items'

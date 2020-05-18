@@ -500,6 +500,10 @@ def insertMultipleBattles(battleList):
         }
     else:
         return new_battle_ids
+
+def getAllUsers():
+    userList = Users.find()
+    return userList
         
 
 # ----- TESTS -----

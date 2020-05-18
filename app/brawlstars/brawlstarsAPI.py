@@ -24,10 +24,14 @@ def getPlayerInfo(playerTag):
 
 def getPlayerBattles(playerTag):
     payload = {"authorization": "Bearer " + apiKey}
-
-    endpoint = url + 'players/%23' + playerTag + '/battlelog'
+    
+    if '#' in playerTag:
+        endpoint = url + 'players/' + playerTag[1:] + '/battlelog'
+    else:
+        endpoint = url + 'players/%23' + playerTag + '/battlelog'
 
     res = requests.get(endpoint, params=payload, proxies=proxyDict)
+    print(res)
     jsonised = res.json()
 
     return jsonised
@@ -48,7 +52,7 @@ def cleanBattleData(battleList, playerTag):
             "duration": battle['duration'] if 'duration' in battle else 'NA',
             "mode":battle['mode'],
             "trophyChange":battle['trophyChange'] if 'trophyChange' in battle else 'NA',
-            "type":battle['type'],
+            "type":battle['type'] if 'type' in battle else 'NA',
             "mapId":battles['event']['id'],
             "mapName":battles['event']['map']
         }
@@ -63,24 +67,38 @@ def cleanBattleData(battleList, playerTag):
         if 'starPlayer' in battle:
             cleanBattle['isStarPlayer'] = True if battle['starPlayer']['tag'] == ('#' + playerTag) else False
 
+        # Add in Boss Fight Level    
+        if battle['mode'] == 'bossFight':
+            cleanBattle['levelName'] = battle['level']['name']
+            cleanBattle['levelId'] = battle['level']['id']
+
         # Play Brawler Details init
-        brawlerData = {
-            "brawlerId": "",
-            "brawlerName": "",
-            "brawlerPower": "",
-            "brawlerTrophies": "",
-        }
+        brawlerData = {}
 
         # Create an object containing the user's brawler details
         def getBrawlerDetails (players):
             for player in players:
                     if player['tag'] == ('#' + playerTag):
-                        return {
-                            "brawlerId": player['brawler']['id'],
-                            "brawlerName": player['brawler']['name'],
-                            "brawlerPower": player['brawler']['power'],
-                            "brawlerTrophies": player['brawler']['trophies']
-                        }
+                        # Handle Friendly Matches
+                        if 'type' not in battle:
+                            return {
+                                "brawlerId": player['brawler']['id'],
+                                "brawlerName": player['brawler']['name'],
+                                "brawlerPower": player['brawler']['power'],
+                                "brawlerTrophies": player['brawler']['trophies']
+                            }
+                        elif battle['type'] is 'ranked':
+                            return {
+                                "brawlerId": player['brawler']['id'],
+                                "brawlerName": player['brawler']['name'],
+                                "brawlerPower": player['brawler']['power'],
+                                "brawlerTrophies": player['brawler']['trophies']
+                            }
+                        else:
+                            return {
+                                "brawlerId": player['brawler']['id'],
+                                "brawlerName": player['brawler']['name']
+                            }
 
         # Team Specifc flow - gemgrab, duo showdown, etc
         if 'teams' in battle:        
