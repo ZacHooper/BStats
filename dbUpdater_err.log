@@ -6,3 +6,51 @@ Traceback (most recent call last):
   File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/brawlstars/brawlstarsAPI.py", line 45, in cleanBattleData
     for battles in battleList['items']:
 KeyError: 'items'
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 14, in <module>
+    res = update_player_battlelog_by_tag(user['_id'][1:])
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/api.py", line 46, in update_player_battlelog_by_tag
+    cleanBattleList = cleanBattleData(battleList, playerTag)
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/brawlstars/brawlstarsAPI.py", line 45, in cleanBattleData
+    for battles in battleList['items']:
+KeyError: 'items'
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 10, in <module>
+    testUser = users[0]['_id']
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 614, in __getitem__
+    for doc in clone:
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 1050, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1810, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1763, in __start_session
+    server_session = self._get_server_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1796, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/topology.py", line 487, in get_server_session
+    self._select_servers_loop(
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/topology.py", line 208, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: connection closed,connection closed,connection closed
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 10, in <module>
+    testUser = users[0]['_id']
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 614, in __getitem__
+    for doc in clone:
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/cursor.py", line 1050, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1810, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1763, in __start_session
+    server_session = self._get_server_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1796, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/topology.py", line 487, in get_server_session
+    self._select_servers_loop(
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/topology.py", line 208, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: connection closed,connection closed,connection closed

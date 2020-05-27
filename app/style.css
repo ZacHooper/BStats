@@ -1,0 +1,61 @@
+.navBar {
+    top: 0px;
+    left: 0px;
+    width: 1920px;
+    height: 72px;
+    background: #484B4D 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+.body {
+    top: 31px;
+    left: 0px;
+    width: 1920px;
+    height: 1145px;
+    background: transparent url('./public/loading_screen_bg.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.logo {
+    text-align: left;
+    font: Regular 40px/40px BrawlStarsDeputy;
+    letter-spacing: 0px;
+    color: #EAF8FF;
+    opacity: 1;
+}
+
+.player-detail-container {
+    top: 90px;
+    left: 277px;
+    width: 390px;
+    height: 175px;
+    background: #F5F1E7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 3px #00000029;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.main-stats-container {
+    top: 276px;
+    left: 279px;
+    width: 390px;
+    height: 276px;
+    background: #F5F1E7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.map-stats-contatiner {
+    top: 275px;
+    left: 675px;
+    width: 585px;
+    height: 514px;
+    background: #F5F1E7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #707070;
+    opacity: 1;
+}
