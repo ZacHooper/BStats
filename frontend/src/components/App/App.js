@@ -8,9 +8,11 @@ import {
 import './App.css';
 import Profile from '../Profile/Profile'
 import ProfileSearch from '../ProfileSearch/ProfileSearch'
+import GlobalStats from '../GlobalStats/GlobalStats'
+import { defaultPlayer } from '../../util/api'
 
-const App = (props) => {
-    const [currentUser, setCurrectUser] = useState({})
+const App = () => {
+    const [currentUser, setCurrectUser] = useState(defaultPlayer)
 
     const searchPlayerTag = async (playerTag) => {        
         const endpoint = `http://127.0.0.1:5000/api/v1/player/info/${playerTag}`
@@ -18,7 +20,7 @@ const App = (props) => {
             const res = await fetch(endpoint);
             if (res.ok) {
                 const json = await res.json();                
-                setCurrectUser(json);
+                setCurrectUser(json);              
             }
             else {
                 throw new Error('Unable to fetch user info');
@@ -38,6 +40,7 @@ const App = (props) => {
                 <nav>
                     <ul>
                         <li><Link to="/profile">Profile Page</Link></li>
+                        <li><Link to="/stats">Global Stats</Link></li>
                         <li><Link to="/">Home</Link></li>
                     </ul>
                 </nav>
@@ -46,7 +49,13 @@ const App = (props) => {
                         <Profile currentUser={currentUser}/>
                     </Route>
 
-                    // This route needs to go last as it acts as a fallback to any routes above
+                    <Route path="/stats">
+                        <GlobalStats />
+                    </Route>
+
+                    {
+                    // This route needs to go last as it acts as a fallback to any routes above 
+                    }
                     <Route path="/">
                         <Home onClick={searchPlayerTag}/>
                     </Route>

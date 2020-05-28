@@ -1,7 +1,19 @@
 import React from 'react'
 import './Profile.css';
+import ProfileBrawler from '../ProfileBrawler/ProfileBrawler'
 
 const Profile = (props) => {
+    
+    const renderBrawlers = () => {
+        return props.currentUser.brawlers.map(brawler => {
+                return <ProfileBrawler key={brawler.id} brawler={brawler} />
+        });
+    }
+
+    if (!props.currentUser.name) {
+        return "Loading"
+    }
+
     return (
         <div className="profile">
             <div className="profile-name-container">
@@ -37,6 +49,10 @@ const Profile = (props) => {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <h2 className="profile-brawlers-heading">Brawlers ({props.currentUser.brawlers.length} / 38) </h2>
+            <div className="profile-brawler-container">
+                {props.currentUser.brawlers ? renderBrawlers() : "Loading"}
             </div>
         </div>  
     )

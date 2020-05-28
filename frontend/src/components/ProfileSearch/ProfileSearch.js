@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './ProfileSearch.css';
 
 const ProfileSearch = (props) => {
+    const history = useHistory()
+
     const [searchTag, setSearchTag] = useState("");
     
     const handleOnClick = () => {
         props.onClick(searchTag)
+        history.push("/profile");
     }
 
     const handleOnChange = (e) => {
@@ -18,7 +21,7 @@ const ProfileSearch = (props) => {
             <h1>Brawlstar Statistics</h1>
             <div className="ProfileSearch-input">
                 <input type="text" onChange={handleOnChange} placeholder="Enter Player Tag..."></input>
-                <Link to="/profile" onClick={handleOnClick}>Search</Link>
+                <button onClick={handleOnClick}>Search</button>
             </div>
             
         </div>
