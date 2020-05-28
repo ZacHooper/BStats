@@ -1,0 +1,32 @@
+.profile-name-container {
+    padding: 25px;
+    background-color: #F5F1E7;
+    border-radius: 25px;
+    width: 25%;
+    text-align: center;
+    color: black;
+    -webkit-box-shadow: 0px 10px 6px 0px rgba(209,209,209,1);
+    -moz-box-shadow: 0px 10px 6px 0px rgba(209,209,209,1);
+    box-shadow: 0px 10px 6px 0px rgb(0, 0, 0, 0.25);
+}
+
+.profile-stats-container {
+    padding: 25px;
+    background-color: #F5F1E7;
+    border-radius: 25px;
+    width: 25%;
+    text-align: center;
+    color: black;
+    -webkit-box-shadow: 0px 10px 6px 0px rgba(209,209,209,1);
+    -moz-box-shadow: 0px 10px 6px 0px rgba(209,209,209,1);
+    box-shadow: 0px 10px 6px 0px rgb(0, 0, 0, 0.25);
+}
+
+.profile-stats-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.profile-stats-container table td {
+    text-align: left;
+}

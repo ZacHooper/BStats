@@ -4,12 +4,14 @@ from .brawlstars.brawlstarsAPI import getPlayerInfo, getPlayerBattles, cleanBatt
 from .mongo.mongoAPI import getUserByTag, addNewUser, insertMultipleBattles
 from bson.json_util import dumps, loads
 import requests
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 
 @app.route('/')
+@cross_origin()
 def get_current_time():
-    return {'time': apiKey}
+    return {'apiKey': apiKey}
 
 @app.route('/player/info/<playerTag>')
 def get_player_info(playerTag):
@@ -20,6 +22,7 @@ def get_player_battles(playerTag):
     return cleanBattleData(getPlayerBattles(playerTag), playerTag)
 
 @app.route('/api/v1/player/info/<playerTag>')
+@cross_origin()
 def get_player_info_from_db(playerTag):
     return getUserByTag(playerTag)
 
