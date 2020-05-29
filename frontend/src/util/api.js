@@ -383,6 +383,6 @@ export const defaultPlayer = {
     "name": "Hoo0oper", 
     "nameColor": "0xfff05637", 
     "soloVictories": 117, 
-    "tag": "#GUL2Y08J", 
+    "_id": "#GUL2Y08J", 
     "trophies": 14072
   }

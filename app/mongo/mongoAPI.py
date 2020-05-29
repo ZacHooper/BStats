@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from bson.json_util import dumps, loads
 from .secrets import password
 from pymongo.errors import BulkWriteError
+import pandas as pd
 
 
 client = MongoClient('mongodb+srv://hooperz:' + password + '@cluster0-kkaez.mongodb.net/test?retryWrites=true&w=majority')
@@ -504,7 +505,37 @@ def insertMultipleBattles(battleList):
 def getAllUsers():
     userList = Users.find()
     return userList
+
+def getUserBrawlerStats(oid, brawlerId):
+    stats = {}
+    
+    # First Check if the user has any battles with this brawler
+    battleFilter = {"userOID":oid, "brawlerId": brawlerId}
+    count = Battles.count_documents(battleFilter)
+    
+    # If the filter comes back empty then immiedately return
+    if count == 0:
+        stats['noResults'] = "NA"
+        return stats
+
+    foundBattles = Battles.find(battleFilter) # Get battle results
+    df = pd.DataFrame.from_dict(foundBattles) # Convert to DF
+    uniqueModes = df['mode'].unique() # Get unique modes with brawler
+
+    # Iterate over each mode and add to the stats dict
+    for mode in uniqueModes:
+        mode_df = df[df['mode'] == mode]
+        clean_df = mode_df.dropna(axis=1) # Clears columns that contain NaN
         
+        if 'rank' in clean_df:
+            averageRank = round(clean_df['rank'].mean(), 4)
+            stats[clean_df.iloc[0]['mode']] = {"averageRank": averageRank}
+
+        if 'result' in clean_df:
+            averageResult = round(clean_df[clean_df['result'] == 'victory']._id.count() / clean_df._id.count(), 4)
+            stats[clean_df.iloc[0]['mode']] = {"averageResult": averageResult}
+        
+    return stats
 
 # ----- TESTS -----
 
@@ -548,4 +579,4 @@ def battle_test():
 
     
 if __name__ == '__main__':
-    battle_test()
+    print(getUserBrawlerStats('#GUL2Y08J', 16000004))

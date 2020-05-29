@@ -54,3 +54,27 @@ Traceback (most recent call last):
   File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/venv/lib/python3.8/site-packages/pymongo/topology.py", line 208, in _select_servers_loop
     raise ServerSelectionTimeoutError(
 pymongo.errors.ServerSelectionTimeoutError: connection closed,connection closed,connection closed
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 4, in <module>
+    from app.mongo.mongoAPI import getAllUsers
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/mongo/mongoAPI.py", line 3, in <module>
+    from secrets import password
+ImportError: cannot import name 'password' from 'secrets' (/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/secrets.py)
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 4, in <module>
+    from app.mongo.mongoAPI import getAllUsers
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/mongo/mongoAPI.py", line 3, in <module>
+    from secrets import password
+ImportError: cannot import name 'password' from 'secrets' (/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/secrets.py)
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 4, in <module>
+    from app.mongo.mongoAPI import getAllUsers
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/mongo/mongoAPI.py", line 3, in <module>
+    from secrets import password
+ImportError: cannot import name 'password' from 'secrets' (/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/secrets.py)
+Traceback (most recent call last):
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/dbUpdater.py", line 4, in <module>
+    from app.mongo.mongoAPI import getAllUsers
+  File "/Users/zachooper/Documents/Personal/BrawlStars/BStats/app/mongo/mongoAPI.py", line 3, in <module>
+    from secrets import password
+ImportError: cannot import name 'password' from 'secrets' (/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/secrets.py)

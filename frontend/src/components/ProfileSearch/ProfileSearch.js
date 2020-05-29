@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './ProfileSearch.css';
 
 const ProfileSearch = (props) => {
-    const history = useHistory()
+    const history = useHistory();
 
     const [searchTag, setSearchTag] = useState("");
     
